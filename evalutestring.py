@@ -13,22 +13,18 @@
 user_range= input("Enter a range of letters (e.g., a-z): ")
 
 alphabet = "abcdefghijklmnopqrstuvwxyz"
-
-
-#split the user's input
-first, last = user_range.split('-')
-
+ 
+#check for string case
+upper_case = user_range.isupper() * alphabet.upper()
+lower_case = user_range.islower() * alphabet.lower() 
+check_case = upper_case + lower_case
 
 #identify location of the start and end of the range
-firstlocation = alphabet.index(first.lower())
-lastlocation = alphabet.index(last.lower())
+firstlocation = check_case.index(user_range[0])
+lastlocation = check_case.index(user_range[-1])
 
 #get range of the characters
-result_string = alphabet[firstlocation:lastlocation + 1]
-
-#identify if user input is upper or lower, if true, it will print accordingly 
-#(the false part will return 0 and so only the true part will be printed)
-result_string = first.isupper() * result_string.upper() + first.islower() * result_string.lower() 
+result_string = check_case[firstlocation:lastlocation + 1]
 
 
 #Print Result string
